@@ -203,7 +203,7 @@
       "(\\w*\\d+\\w*\\s+stop|stop\\s+\\w*\\d+\\w*|\\w*\\d+\\w*stop)"
     ],
     "phrases_patterns": [
-      "\\b(?:please\\ remove\\ me\\ from\\ your\\ mailing\\ list|please\\ remove\\ me\\ from\\ your\\ text\\ list|dont\\ send\\ me\\ anymore\\ notifications|please\\ take\\ me\\ off\\ your\\ text\\ list|dont\\ send\\ me\\ anymore\\ promotions|please\\ remove\\ me\\ from\\ this\\ list|please\\ remove\\ me\\ from\\ your\\ list|please\\ stop\\ sending\\ me\\ messages|please\\ unsubscribe\\ me\\ thank\\ you|dont\\ send\\ me\\ anymore\\ discounts|stop\\ sending\\ me\\ text\\ messages|dont\\ send\\ me\\ anymore\\ coupons|dont\\ send\\ me\\ anymore\\ updates|please\\ stop\\ sending\\ me\\ texts|please\\ take\\ me\\ off\\ your\\ list|dont\\ send\\ me\\ anymore\\ offers|dont\\ send\\ me\\ anymore\\ deals|do\\ not\\ sell\\ my\\ information|dont\\ send\\ me\\ anymore\\ news|please\\ stop\\ sending\\ texts|you\\ have\\ the\\ wrong\\ number|stop\\ sending\\ me\\ messages|dont\\ sell\\ my\\ information|please\\ stop\\ messaging\\ me|remove\\ me\\ from\\ your\\ list|stop\\ texting\\ this\\ number|please\\ do\\ not\\ contact\\ me|dont\\ want\\ notifications|dont\\ want\\ text\\ messages|can\\ you\\ stop\\ texting\\ me|please\\ stop\\ texting\\ me|stop\\ texting\\ me\\ please|please\\ dont\\ contact\\ me|stop\\ sending\\ me\\ texts|delete\\ my\\ information|how\\ can\\ i\\ unsubscribe|stop\\ ai\\ text\\ messages|i\\ want\\ to\\ unsubscribe|please\\ unsubscribe\\ me|stop\\ sending\\ me\\ stuff|stop\\ sending\\ messages|take\\ me\\ off\\ your\\ list|unsubscribe\\ me\\ please|don\\ t\\ want\\ your\\ promo|dont\\ want\\ promotions|how\\ do\\ i\\ unsubscribe|stop\\ sending\\ me\\ text|stop\\ sending\\ me\\ sms|dont\\ want\\ discounts|do\\ not\\ sell\\ my\\ info|please\\ stop\\ texting|stop\\ texting\\ please|how\\ to\\ unsubscribe|stop\\ ai\\ promotions|please\\ unsubscribe|stop\\ sending\\ texts|stop\\ text\\ messages|unsubscribe\\ please|delete\\ my\\ account|dont\\ want\\ coupons|dont\\ want\\ updates|how\\ can\\ i\\ opt\\ out|dont\\ sell\\ my\\ info|please\\ stop\\ texts|stop\\ messaging\\ me|stop\\ sending\\ text|stop\\ texts\\ please|do\\ not\\ contact\\ me|dont\\ want\\ promos|dont\\ want\\ offers|remove\\ my\\ number|how\\ do\\ i\\ opt\\ out|stop\\ with\\ the\\ ai|stop\\ ai\\ messages|please\\ remove\\ me|remove\\ from\\ list|stop\\ unsubscribe|stop\\ texting\\ me|dont\\ want\\ deals|dont\\ want\\ texts|stop\\ contacting|no\\ need\\ to\\ send|quit\\ texting\\ me|stop\\ to\\ opt\\ out|dont\\ contact\\ me|dont\\ want\\ news|stop\\ harrasing|delete\\ my\\ info|delete\\ my\\ data|how\\ to\\ opt\\ out|leave\\ me\\ alone|unsubscribe\\ me|dont\\ harass\\ me|stop\\ messaging|stop\\ stop\\ stop|stop\\ to\\ cancel|do\\ not\\ text\\ me|stop\\ stalking|stop\\ spamming|how\\ do\\ i\\ stop|where\\ is\\ stop|stop\\ ai\\ texts|no\\ more\\ texts|please\\ remove|stop\\ messages|don\\ t\\ text\\ me|deleting\\ you|do\\ not\\ track|do\\ not\\ share|dont\\ message|dont\\ spam\\ me|stop\\ with\\ ai|stop\\ sending|stop\\ texting|stop\\ to\\ stop|ill\\ opt\\ out|take\\ me\\ off|how\\ to\\ stop|please\\ stop|stop\\ please|stop\\ to\\ end|do\\ not\\ text|stop\\ texts|delete\\ you|opt\\ me\\ out|wheresstop|where\\ stop|stop\\ lying|don\\ t\\ text|stop\\ text|dont\\ text|dont\\ call|dont\\ spam|maya\\ stop|remove\\ me|stop\\ stop|unsub\\ me|bro\\ stop|i\\ m\\ done|no\\ texts|pls\\ stop|stop\\ all|stop\\ now|stop\\ pls|stop2end|ill\\ opt|stop\\ ai|get\\ out|no\\ more|stop\\ it|i\\ stop|fucking\\ stop|stop\\ bitch|stop\\ fucking\\ texting\\ me|spam)\\b"
+      "\\b(?:please\\ remove\\ me\\ from\\ your\\ mailing\\ list|please\\ remove\\ me\\ from\\ your\\ text\\ list|dont\\ send\\ me\\ anymore\\ notifications|dont\\ send\\ me\\ anything|please\\ take\\ me\\ off\\ your\\ text\\ list|dont\\ send\\ me\\ anymore\\ promotions|please\\ remove\\ me\\ from\\ this\\ list|please\\ remove\\ me\\ from\\ your\\ list|please\\ stop\\ sending\\ me\\ messages|please\\ unsubscribe\\ me\\ thank\\ you|dont\\ send\\ me\\ anymore\\ discounts|stop\\ sending\\ me\\ text\\ messages|dont\\ send\\ me\\ anymore\\ coupons|dont\\ send\\ me\\ anymore\\ updates|please\\ stop\\ sending\\ me\\ texts|please\\ take\\ me\\ off\\ your\\ list|dont\\ send\\ me\\ anymore\\ offers|dont\\ send\\ me\\ anymore\\ deals|do\\ not\\ sell\\ my\\ information|dont\\ send\\ me\\ anymore\\ news|please\\ stop\\ sending\\ texts|you\\ have\\ the\\ wrong\\ number|stop\\ sending\\ me\\ messages|dont\\ sell\\ my\\ information|please\\ stop\\ messaging\\ me|remove\\ me\\ from\\ your\\ list|stop\\ texting\\ this\\ number|please\\ do\\ not\\ contact\\ me|dont\\ want\\ notifications|dont\\ want\\ text\\ messages|can\\ you\\ stop\\ texting\\ me|please\\ stop\\ texting\\ me|stop\\ texting\\ me\\ please|please\\ dont\\ contact\\ me|stop\\ sending\\ me\\ texts|delete\\ my\\ information|how\\ can\\ i\\ unsubscribe|stop\\ ai\\ text\\ messages|i\\ want\\ to\\ unsubscribe|please\\ unsubscribe\\ me|stop\\ sending\\ me\\ stuff|stop\\ sending\\ messages|take\\ me\\ off\\ your\\ list|unsubscribe\\ me\\ please|don\\ t\\ want\\ your\\ promo|dont\\ want\\ promotions|how\\ do\\ i\\ unsubscribe|stop\\ sending\\ me\\ text|stop\\ sending\\ me\\ sms|dont\\ want\\ discounts|do\\ not\\ sell\\ my\\ info|please\\ stop\\ texting|stop\\ texting\\ please|how\\ to\\ unsubscribe|stop\\ ai\\ promotions|please\\ unsubscribe|stop\\ sending\\ texts|stop\\ text\\ messages|unsubscribe\\ please|delete\\ my\\ account|dont\\ want\\ coupons|dont\\ want\\ updates|how\\ can\\ i\\ opt\\ out|dont\\ sell\\ my\\ info|please\\ stop\\ texts|stop\\ messaging\\ me|stop\\ sending\\ text|stop\\ texts\\ please|do\\ not\\ contact\\ me|dont\\ want\\ promos|dont\\ want\\ offers|remove\\ my\\ number|how\\ do\\ i\\ opt\\ out|stop\\ with\\ the\\ ai|stop\\ ai\\ messages|please\\ remove\\ me|remove\\ from\\ list|stop\\ unsubscribe|stop\\ texting\\ me|dont\\ want\\ deals|dont\\ want\\ texts|stop\\ contacting|no\\ need\\ to\\ send|quit\\ texting\\ me|stop\\ to\\ opt\\ out|dont\\ contact\\ me|dont\\ want\\ news|stop\\ harrasing|delete\\ my\\ info|delete\\ my\\ data|how\\ to\\ opt\\ out|leave\\ me\\ alone|unsubscribe\\ me|dont\\ harass\\ me|stop\\ messaging|stop\\ stop\\ stop|stop\\ to\\ cancel|do\\ not\\ text\\ me|stop\\ stalking|stop\\ spamming|how\\ do\\ i\\ stop|where\\ is\\ stop|stop\\ ai\\ texts|no\\ more\\ texts|please\\ remove|stop\\ messages|don\\ t\\ text\\ me|deleting\\ you|do\\ not\\ track|do\\ not\\ share|dont\\ message|dont\\ spam\\ me|stop\\ with\\ ai|stop\\ sending|stop\\ texting|stop\\ to\\ stop|ill\\ opt\\ out|take\\ me\\ off|how\\ to\\ stop|please\\ stop|stop\\ please|stop\\ to\\ end|do\\ not\\ text|stop\\ texts|delete\\ you|opt\\ me\\ out|wheresstop|where\\ stop|stop\\ lying|don\\ t\\ text|stop\\ text|dont\\ text|dont\\ call|dont\\ spam|maya\\ stop|remove\\ me|stop\\ stop|unsub\\ me|bro\\ stop|i\\ m\\ done|no\\ texts|pls\\ stop|stop\\ all|stop\\ now|stop\\ pls|stop2end|ill\\ opt|stop\\ ai|get\\ out|no\\ more|stop\\ it|i\\ stop|fucking\\ stop|stop\\ bitch|stop\\ fucking\\ texting\\ me|spam)\\b"
     ],
     "wrong_number_patterns": [
       "\\b(?:this\\ phone\\ number\\ is\\ no\\ longer\\ in\\ service|change\\ my\\ text\\ subscription\\ number|ive\\ had\\ this\\ number\\ for\\ years|someone\\ else\\ had\\ this\\ number|change\\ my\\ phone\\ number|change\\ phone\\ number|new\\ phone\\ number|change\\ my\\ number|didnt\\ subscribe|this\\ is\\ not\\ me|change\\ number|not\\ my\\ number|wrong\\ number|wrong\\ person|new\\ number|not\\ me)\\b"
@@ -2015,5 +2015,44 @@
       "removed a question mark from an image",
       "removed from an image"
     ]
+  },
+  "rule_descriptions": {
+    "keyword": {
+      "exact": "Exact opt-out keywords that should be treated as unsubscribe intent.",
+      "typo": "Common misspellings/variants of opt-out keywords that should still count as opt-out intent."
+    },
+    "direct_opt_out": {
+      "symbols": "Emoji/symbol-only stop signals that count as direct opt-out intent.",
+      "device_not_working": "Known device/system auto-replies indicating the number cannot receive SMS.",
+      "code_with_stop_patterns": "Pattern where STOP appears with an alphanumeric code, treated as direct opt-out.",
+      "phrases_patterns": "Direct unsubscribe/no-contact phrases that clearly request stopping messages.",
+      "wrong_number_patterns": "Phrases indicating wrong recipient or wrong number.",
+      "disengagement_patterns": "Phrases showing clear disengagement and request to stop contact.",
+      "block_patterns": "Phrases indicating blocking/uninstall behavior tied to stopping messages."
+    },
+    "offensive": {
+      "symbols": "Offensive symbols that indicate hostile stop intent.",
+      "frustration_patterns": "Strong hostile phrases that indicate frustration and should be treated as stop intent."
+    },
+    "under_13": {
+      "age_limit_phrases": "Starter phrases used to detect self-reported age context.",
+      "rules": {
+        "explicit_age_patterns": "Numeric age statements used to detect under-13 declarations.",
+        "explicit_word_age_patterns": "Word-based age statements used to detect under-13 declarations.",
+        "implicit_patterns": "Direct statements indicating the customer is under age 13.",
+        "indirect_patterns": "Context clues suggesting elementary-school age."
+      }
+    },
+    "journeys": {
+      "brand_message": "Normalized brand prompt for a structured journey step.",
+      "opt_out_responses": "Accepted customer journey responses that mean stop/no more texts."
+    },
+    "non_opt_out": {
+      "common_phrases": "Common benign replies that should not be treated as opt-out.",
+      "auto_reply": "Automated device/system replies that should not be treated as opt-out.",
+      "opt_in_texts": "Known opt-in consent text snippets that are not opt-out.",
+      "reaction_reply": "Message reaction/system reaction text that is not opt-out intent."
+    }
   }
 }
+

@@ -26,15 +26,18 @@ except Exception:
     tqdm = None
 
 
-INPUT_CSV = "files/mar30.csv"
-OUTPUT_CSV = "files/mar30_classified.csv"
-OUTPUT_REASON_CSV = "files/mar30_reasons.csv"
-OUTPUT_AGENT_TEMPLATE_CSV = "files/mar30_agent_templates.csv"
+INPUT_CSV = "files/apr6.csv"
+OUTPUT_CSV = "files/apr6_classified.csv"
+OUTPUT_REASON_CSV = "files/apr6_reasons.csv"
+OUTPUT_AGENT_TEMPLATE_CSV = "files/apr6_agent_templates.csv"
 CONFIG_PATH = "scripts/config.json"
 CSV_ENCODING = "utf-8-sig"
 OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/generate")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gemma3:4b")
 OLLAMA_TIMEOUT_SECONDS = int(os.environ.get("OLLAMA_TIMEOUT_SECONDS", "120"))
+OLLAMA_REASON_FALLBACK = os.environ.get("OLLAMA_REASON_FALLBACK", "1").strip().lower() not in {"0", "false", "no"}
+LLM_REASON_PREFIX = os.environ.get("LLM_REASON_PREFIX", "llm")
+OLLAMA_NO_REASON_CATEGORIZATION = os.environ.get("OLLAMA_NO_REASON_CATEGORIZATION", "1").strip().lower() not in {"0", "false", "no"}
 
 BRAND_COL = "BRAND_MESSAGE"
 CUSTOMER_COL = "CUSTOMER_MESSAGE"
@@ -569,6 +572,39 @@ def decompose_string_into_tokens(value: str, sorted_tokens):
     return parts
 
 
+def keyword_reason_length_allowed(words: list[str]) -> bool:
+    # Keyword/typo-keyword reasons are reserved for compact keyword-like
+    # messages: one keyword token, optionally with one adjacent token.
+    return 0 < len(words) <= 2
+
+
+def pick_primary_keyword_trigger(words: list[str], keyword_rules: dict, reason_name: str) -> str:
+    exact_single_tokens = keyword_rules["exact_single_tokens"]
+    typo_exact_tokens = keyword_rules["typo_exact_tokens"]
+
+    for word in words:
+        candidates = [word]
+        if len(word) >= 4:
+            collapsed = collapse_repeated_chars(word)
+            if collapsed != word:
+                candidates.append(collapsed)
+
+        if reason_name == "opt_out_keywords":
+            if any(candidate in exact_single_tokens for candidate in candidates):
+                return word
+        else:
+            if any(candidate in typo_exact_tokens for candidate in candidates):
+                return word
+            if any(
+                is_general_keyword_typo(candidate, keyword_rules) or is_stop_family_typo(candidate, keyword_rules)
+                for candidate in candidates
+            ):
+                return word
+
+    # Fall back to first token if no better single-token match is found.
+    return words[0] if words else ""
+
+
 def analyze_keyword_like_fragment(fragment: str, keyword_rules: dict) -> dict:
     empty = {"reason": None, "triggers": []}
     fragment = normalize_keyword_text(fragment)
@@ -577,6 +613,8 @@ def analyze_keyword_like_fragment(fragment: str, keyword_rules: dict) -> dict:
 
     words = fragment.split()
     if not words:
+        return empty
+    if not keyword_reason_length_allowed(words):
         return empty
 
     exact_entries = keyword_rules["exact_entries"]
@@ -759,6 +797,8 @@ def analyze_keyword_message(raw_text, keyword_rules):
     words = normalized.split()
     if not words:
         return empty
+    if not keyword_reason_length_allowed(words):
+        return empty
 
     exact_entries = keyword_rules["exact_entries"]
     exact_single_tokens = keyword_rules["exact_single_tokens"]
@@ -769,17 +809,19 @@ def analyze_keyword_message(raw_text, keyword_rules):
     typo_phrase_sequences = keyword_rules["typo_phrase_sequences"]
 
     if normalized in exact_entries:
+        trigger = normalized if " " in normalized else pick_primary_keyword_trigger(words, keyword_rules, "opt_out_keywords")
         return {
             "reason": "opt_out_keywords",
-            "triggers": [normalized],
+            "triggers": [trigger] if trigger else [normalized],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
 
     if normalized in typo_exact_entries:
+        trigger = normalized if " " in normalized else pick_primary_keyword_trigger(words, keyword_rules, "typo_opt_out_keyword")
         return {
             "reason": "typo_opt_out_keyword",
-            "triggers": [normalized],
+            "triggers": [trigger] if trigger else [normalized],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
@@ -790,9 +832,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
         exact_phrase_sequences,
     )
     if exact_only:
+        trigger = pick_primary_keyword_trigger(words, keyword_rules, "opt_out_keywords")
         return {
             "reason": "opt_out_keywords",
-            "triggers": exact_triggers,
+            "triggers": [trigger] if trigger else exact_triggers[:1],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
@@ -803,9 +846,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
         typo_phrase_sequences,
     )
     if typo_only:
+        trigger = pick_primary_keyword_trigger(words, keyword_rules, "typo_opt_out_keyword")
         return {
             "reason": "typo_opt_out_keyword",
-            "triggers": typo_triggers,
+            "triggers": [trigger] if trigger else typo_triggers[:1],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
@@ -834,9 +878,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
             break
 
     if levenshtein_typo_triggers:
+        trigger = pick_primary_keyword_trigger(words, keyword_rules, "typo_opt_out_keyword")
         return {
             "reason": "typo_opt_out_keyword",
-            "triggers": list(dict.fromkeys(levenshtein_typo_triggers)),
+            "triggers": [trigger] if trigger else list(dict.fromkeys(levenshtein_typo_triggers))[:1],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
@@ -872,9 +917,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
         break
 
     if mixed_triggers and has_typo_like:
+        trigger = pick_primary_keyword_trigger(words, keyword_rules, "typo_opt_out_keyword")
         return {
             "reason": "typo_opt_out_keyword",
-            "triggers": list(dict.fromkeys(mixed_triggers)),
+            "triggers": [trigger] if trigger else list(dict.fromkeys(mixed_triggers))[:1],
             "exact_in_phrase_triggers": [],
             "keyword_only_message": True,
         }
@@ -890,9 +936,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
             exact_phrase_sequences,
         )
         if exact_only_with_numbers:
+            trigger = pick_primary_keyword_trigger(non_numeric_words, keyword_rules, "typo_opt_out_keyword")
             return {
                 "reason": "typo_opt_out_keyword",
-                "triggers": [normalized],
+                "triggers": [trigger] if trigger else [normalized],
                 "exact_in_phrase_triggers": [],
                 "keyword_only_message": True,
             }
@@ -903,9 +950,10 @@ def analyze_keyword_message(raw_text, keyword_rules):
             typo_phrase_sequences,
         )
         if typo_only_with_numbers:
+            trigger = pick_primary_keyword_trigger(non_numeric_words, keyword_rules, "typo_opt_out_keyword")
             return {
                 "reason": "typo_opt_out_keyword",
-                "triggers": [normalized],
+                "triggers": [trigger] if trigger else [normalized],
                 "exact_in_phrase_triggers": [],
                 "keyword_only_message": True,
             }
@@ -1166,6 +1214,250 @@ def strip_ollama_wrapper_quotes(text: str) -> str:
     for pattern in wrapper_quote_patterns:
         cleaned = pattern.sub(r'\1\2', cleaned)
     return cleaned
+
+
+def build_llm_reason_options(config: dict) -> list[dict]:
+    keyword_config = get_config_section(config, "keyword")
+    direct_opt_out_config = get_config_section(config, "direct_opt_out")
+    offensive_config = get_config_section(config, "offensive")
+    under_13_config = get_config_section(config, "under_13")
+    journeys_config = config.get("journeys", {})
+
+    options = []
+
+    def add_option(reason: str, description: str):
+        options.append({"reason": reason, "description": description})
+
+    if keyword_config.get("exact"):
+        add_option("opt_out_keywords", "Clear opt-out keyword intent like stop, unsubscribe, remove.")
+    if keyword_config.get("typo"):
+        add_option("typo_opt_out_keyword", "Misspelled or typo variant of an opt-out keyword.")
+    if direct_opt_out_config.get("symbols"):
+        add_option("symbols", "Direct opt-out represented by stop/no symbols or emoji.")
+    if direct_opt_out_config.get("phrases_patterns"):
+        add_option("phrases", "Direct phrase requesting no more texts, unsubscribe, or removal.")
+    if direct_opt_out_config.get("wrong_number_patterns"):
+        add_option("wrong_number", "Customer indicates wrong number/not the intended recipient.")
+    if direct_opt_out_config.get("disengagement_patterns"):
+        add_option("disengagement", "Customer asks to be left alone or indicates disengagement.")
+    if direct_opt_out_config.get("block_patterns"):
+        add_option("block", "Customer says they blocked/will block/uninstall for messages.")
+    if direct_opt_out_config.get("device_not_working"):
+        add_option("opt_out_device_not_working", "Device/number cannot receive texts.")
+    if journeys_config:
+        add_option("journeys", "Journey response indicating preference to stop receiving texts.")
+    if offensive_config.get("symbols"):
+        add_option("offensive_symbols", "Offensive symbol usage indicating hostile stop intent.")
+    if offensive_config.get("frustration_patterns"):
+        add_option("frustration", "Hostile/frustrated opt-out language.")
+    if under_13_config:
+        add_option("under_13", "Customer indicates they are under age 13.")
+
+    return options
+
+
+def sanitize_llm_trigger(customer_message: str, trigger: str) -> str:
+    if not customer_message:
+        return ""
+    candidate = (trigger or "").strip().strip('"').strip("'")
+    if not candidate:
+        return ""
+
+    customer_raw = str(customer_message)
+    short_candidate = " ".join(candidate.split()[:8])[:160]
+    if short_candidate.lower() in customer_raw.lower():
+        return short_candidate
+
+    normalized_customer = normalize_ollama_guard_text(customer_raw)
+    normalized_candidate = normalize_ollama_guard_text(short_candidate)
+    if normalized_candidate and normalized_candidate in normalized_customer:
+        return short_candidate
+    return ""
+
+
+def fallback_trigger_from_customer_message(customer_message: str) -> str:
+    if not customer_message:
+        return ""
+    words = str(customer_message).strip().split()
+    if not words:
+        return ""
+    return " ".join(words[:8])[:160]
+
+
+def select_reason_with_ollama(customer_message: str, brand_message: str, llm_reason_options: tuple[tuple[str, str], ...]) -> tuple[str, str, str]:
+    if not customer_message or not llm_reason_options:
+        return "no_reason", "", ""
+    return select_reason_with_ollama_cached(customer_message, brand_message or "", llm_reason_options)
+
+
+@lru_cache(maxsize=50000)
+def select_reason_with_ollama_cached(customer_message: str, brand_message: str, llm_reason_options: tuple[tuple[str, str], ...]) -> tuple[str, str, str]:
+    options_lines = "\n".join([f"- {reason}: {description}" for reason, description in llm_reason_options])
+    allowed_reasons = {reason for reason, _ in llm_reason_options}
+    prompt = (
+        "You are classifying one customer SMS message into exactly one configured reason key.\n"
+        "Return strict JSON with keys: reason, trigger, why.\n"
+        "Rules:\n"
+        "- reason must be one of the allowed reason keys below, or no_reason.\n"
+        "- choose the single best fitting reason by semantics.\n"
+        "- do not invent keys.\n"
+        "- be strict: if the user does not clearly request stopping texts/contact, does not indicate wrong number/device-not-capable/under-13/block intent, return no_reason.\n"
+        "- complaints or dissatisfaction alone are not enough unless they clearly include stop/no-contact intent.\n"
+        "- trigger must be an exact short quote copied from the customer message for the chosen reason; if reason is no_reason use an empty trigger.\n"
+        "- keep why to one short sentence.\n\n"
+        "Allowed reasons:\n"
+        f"{options_lines}\n\n"
+        f"Brand message: {brand_message}\n"
+        f"Customer message: {customer_message}\n"
+    )
+
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "format": "json",
+        "options": {"temperature": 0},
+    }
+
+    request = urllib.request.Request(
+        OLLAMA_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=OLLAMA_TIMEOUT_SECONDS) as response:
+            raw_response = response.read().decode("utf-8")
+        parsed = json.loads(raw_response)
+        raw_text = str(parsed.get("response", "")).strip()
+        if not raw_text:
+            return "no_reason", "", ""
+        model_json = json.loads(raw_text)
+        selected_reason = str(model_json.get("reason", "")).strip()
+        trigger = str(model_json.get("trigger", "")).strip()
+        why = str(model_json.get("why", "")).strip()
+        if selected_reason not in allowed_reasons:
+            return "no_reason", "", ""
+        safe_trigger = sanitize_llm_trigger(customer_message, trigger)
+        return selected_reason, safe_trigger, why
+    except (urllib.error.URLError, TimeoutError, ValueError, OSError, json.JSONDecodeError):
+        return "no_reason", "", ""
+
+
+def slugify_reason_label(value: str) -> str:
+    s = normalize_keyword_text(value or "")
+    if not s:
+        return "unclear_intent"
+    s = s.replace(" ", "_")
+    s = re.sub(r"[^a-z0-9_]+", "", s)
+    s = re.sub(r"_+", "_", s).strip("_")
+    return s or "unclear_intent"
+
+
+NO_REASON_OPT_OUT_CATEGORY_DESCRIPTIONS = {
+    "opt_out_scope_limit_request": "Customer wants fewer texts or only specific message types/topics.",
+    "opt_out_contact_concern": "Customer questions how/why they are being contacted or channel used.",
+    "opt_out_ambiguous_stop_signal": "Customer dissatisfaction/friction may imply stop intent but is not explicit.",
+    "opt_out_support_not_stop": "Customer message is mainly support/order context without clear stop request.",
+    "opt_out_unclear": "No clear opt-out intent can be inferred.",
+}
+
+
+def normalize_no_reason_opt_out_category(value: str) -> str:
+    key = slugify_reason_label(value)
+    if key in NO_REASON_OPT_OUT_CATEGORY_DESCRIPTIONS:
+        return key
+    return "opt_out_unclear"
+
+
+def llm_template_style_fallback(customer_message: str, category: str) -> str:
+    trigger = fallback_trigger_from_customer_message(customer_message) or "the customer message"
+    if category == "opt_out_scope_limit_request":
+        return f'Saying "{trigger}" indicates the customer wants only specific message types, which should be treated as a scoped opt-out preference.'
+    if category == "opt_out_contact_concern":
+        return f'Saying "{trigger}" indicates concern about being contacted, which should be reviewed for potential opt-out handling.'
+    if category == "opt_out_ambiguous_stop_signal":
+        return f'Saying "{trigger}" may indicate stop intent, so this should be reviewed as a potential opt-out request.'
+    if category == "opt_out_support_not_stop":
+        return f'Saying "{trigger}" appears to be a support request rather than a clear opt-out, but should still be reviewed for opt-out context.'
+    return f'Saying "{trigger}" does not clearly express opt-out intent and should be reviewed as unclear opt-out context.'
+
+
+def template_includes_valid_customer_quote(template: str, customer_message: str) -> bool:
+    if not template or not customer_message:
+        return False
+    quoted_parts = re.findall(r'"([^"]+)"', template)
+    if not quoted_parts:
+        return False
+    customer_raw = str(customer_message)
+    customer_norm = normalize_ollama_guard_text(customer_raw)
+    for part in quoted_parts:
+        piece = part.strip()
+        if not piece:
+            continue
+        if piece.lower() in customer_raw.lower():
+            return True
+        piece_norm = normalize_ollama_guard_text(piece)
+        if piece_norm and piece_norm in customer_norm:
+            return True
+    return False
+
+
+def categorize_no_reason_with_ollama(customer_message: str, brand_message: str) -> tuple[str, str]:
+    if not customer_message:
+        return "unclear_intent", ""
+    return categorize_no_reason_with_ollama_cached(customer_message, brand_message or "")
+
+
+@lru_cache(maxsize=50000)
+def categorize_no_reason_with_ollama_cached(customer_message: str, brand_message: str) -> tuple[str, str]:
+    category_lines = "\n".join(
+        [f"- {k}: {v}" for k, v in NO_REASON_OPT_OUT_CATEGORY_DESCRIPTIONS.items()]
+    )
+    prompt = (
+        "You are labeling a customer message that did not match existing rules.\n"
+        "Return strict JSON with keys: category, trigger.\n"
+        "Rules:\n"
+        "- category must be one of the allowed categories below.\n"
+        "- this is specifically an opt-out-context categorization, not a general support taxonomy.\n"
+        "- choose the category that best reflects opt-out relevance.\n"
+        "- trigger must be a short exact quote from the customer message that best supports the category.\n"
+        "- if no suitable quote, return empty trigger.\n\n"
+        "Allowed categories:\n"
+        f"{category_lines}\n\n"
+        f"Brand message: {brand_message}\n"
+        f"Customer message: {customer_message}\n"
+    )
+
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "format": "json",
+        "options": {"temperature": 0},
+    }
+
+    request = urllib.request.Request(
+        OLLAMA_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(request, timeout=OLLAMA_TIMEOUT_SECONDS) as response:
+            raw_response = response.read().decode("utf-8")
+        parsed = json.loads(raw_response)
+        raw_text = str(parsed.get("response", "")).strip()
+        if not raw_text:
+            return "opt_out_unclear", ""
+        model_json = json.loads(raw_text)
+        category = normalize_no_reason_opt_out_category(str(model_json.get("category", "")).strip())
+        trigger = sanitize_llm_trigger(customer_message, str(model_json.get("trigger", "")).strip())
+        return category, trigger
+    except (urllib.error.URLError, TimeoutError, ValueError, OSError, json.JSONDecodeError):
+        return "opt_out_unclear", ""
 
 
 def rephrase_template_with_ollama(template_text: str) -> str:
@@ -1541,71 +1833,42 @@ def build_agent_templates_output(output_df: pd.DataFrame) -> pd.DataFrame:
         if week_col and week_col in group.columns:
             week_value = group[week_col].iloc[0]
 
-        reason_buckets = {}
         conversation_message_lines = []
+        reason_buckets = {}
         for _, row in group.iterrows():
             link_value = row.get(link_col, "") if link_col else ""
             link_text = str(link_value).strip() if pd.notna(link_value) else ""
             link_display = shorten_link_to_dagd(link_text) if link_text else ""
             raw_customer_message = row.get(customer_message_col, "") if customer_message_col else ""
             customer_message_text = str(raw_customer_message).replace("\n", " ").strip() if pd.notna(raw_customer_message) else ""
+            row_template_text = str(row.get("Template", "")).strip() if pd.notna(row.get("Template", "")) else ""
+            row_reason_text = str(row.get("REASON", "")).strip() if pd.notna(row.get("REASON", "")) else ""
             convo_idx = len(conversation_message_lines) + 1
             conversation_message_lines.append(f"Convo {convo_idx}: {customer_message_text}")
-            reason_values = [r.strip() for r in str(row.get("REASON", "")).split(",") if r.strip()]
-            keyword_triggers = split_trigger_values(str(row.get("Detected Keyword Trigger", "")))
-            under13_triggers = split_trigger_values(str(row.get("Detected Under 13 Trigger", "")))
-            direct_triggers = split_trigger_values(str(row.get("Detected Direct Opt-Out Trigger", "")))
-            offensive_triggers = split_trigger_values(str(row.get("Detected Offensive Trigger", "")))
 
-            for reason in reason_values:
-                if reason == "opt_out_keywords":
-                    key = "keyword"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, keyword_triggers)
-                elif reason == "typo_opt_out_keyword":
-                    key = "typo_keyword"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, keyword_triggers)
-                elif reason == "under_13":
-                    key = "age_limit"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, under13_triggers)
-                elif reason == "symbols":
-                    key = "symbols"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, direct_triggers + offensive_triggers)
-                elif reason == "offensive_symbols":
-                    key = "offensive_symbols"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, offensive_triggers)
-                elif reason == "wrong_number":
-                    key = "wrong_number"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, direct_triggers)
-                elif reason == "block":
-                    key = "direct"
-                    trigs = select_category_trigger_from_message("block", customer_message_text, direct_triggers)
-                elif reason == "disengagement":
-                    key = "direct"
-                    trigs = select_category_trigger_from_message("disengagement", customer_message_text, direct_triggers)
-                elif reason == "frustration":
-                    key = "frustration"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, offensive_triggers or direct_triggers)
-                elif reason == "phrases":
-                    key = "direct"
-                    trigs = select_category_trigger_from_message("phrases", customer_message_text, direct_triggers)
-                elif reason == "opt_out_device_not_working":
-                    key = "device_not_working"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, direct_triggers)
-                elif reason == "journeys":
-                    key = "journeys"
-                    trigs = select_category_trigger_from_message(key, customer_message_text, direct_triggers)
-                else:
-                    continue
+            bucket_key = row_reason_text or "__no_reason__"
+            bucket = reason_buckets.setdefault(bucket_key, {"links": [], "templates": []})
+            if link_display:
+                bucket["links"].append(link_display)
+            if row_template_text:
+                bucket["templates"].append(row_template_text)
 
-                bucket = reason_buckets.setdefault(key, {"links": [], "triggers": []})
-                if link_display:
-                    bucket["links"].append(link_display)
-                bucket["triggers"].extend(trigs)
+        conversation_lines = []
+        for _, bucket in reason_buckets.items():
+            links = list(dict.fromkeys(bucket["links"]))
+            templates = list(dict.fromkeys(bucket["templates"]))
+            if templates:
+                # Keep source-of-truth from classified rows; if multiple variants share
+                # the same reason, join them in one merged bullet.
+                reason_line = " Also, ".join(templates)
+            else:
+                reason_line = "No reason provided."
 
-        conversation_lines = [
-            render_collapsed_reason_bullet(cat, data["links"], data["triggers"])
-            for cat, data in reason_buckets.items()
-        ]
+            convo_prefix = "Conversations" if len(links) > 1 else "Conversation"
+            link_text = " & ".join(links) if links else ""
+            convo_label = f"{convo_prefix} {link_text}:" if link_text else f"{convo_prefix}:"
+            conversation_lines.append(f"{convo_label} {reason_line}")
+
         if not conversation_lines:
             conversation_lines = ["Conversation: No reason provided."]
 
@@ -1655,6 +1918,7 @@ def classify_message(
     direct_opt_out_rules,
     offensive_symbols,
     offensive_pattern_rules,
+    llm_reason_options,
 ):
     if customer_message is None or pd.isna(customer_message):
         return build_no_match_output()
@@ -1790,6 +2054,80 @@ def classify_message(
         output.update(build_output_flags([], {}))
         return output
 
+    if OLLAMA_REASON_FALLBACK:
+        llm_reason, llm_trigger, _ = select_reason_with_ollama(
+            customer_message=raw_customer,
+            brand_message=str(brand_message) if brand_message is not None else "",
+            llm_reason_options=llm_reason_options,
+        )
+        if llm_reason != "no_reason":
+            # Keep LLM fallback aligned with deterministic keyword rules:
+            # if we can extract a clear keyword/typo signal, force that reason.
+            keyword_reason_resolved = False
+            llm_keyword_analysis = analyze_keyword_message(raw_customer, keyword_rules)
+            if llm_keyword_analysis["reason"] in {"opt_out_keywords", "typo_opt_out_keyword"}:
+                llm_reason = llm_keyword_analysis["reason"]
+                if llm_keyword_analysis["triggers"]:
+                    llm_trigger = llm_keyword_analysis["triggers"][0]
+                keyword_reason_resolved = True
+            elif llm_trigger:
+                llm_trigger_keyword_analysis = analyze_keyword_message(llm_trigger, keyword_rules)
+                if llm_trigger_keyword_analysis["reason"] in {"opt_out_keywords", "typo_opt_out_keyword"}:
+                    llm_reason = llm_trigger_keyword_analysis["reason"]
+                    if llm_trigger_keyword_analysis["triggers"]:
+                        llm_trigger = llm_trigger_keyword_analysis["triggers"][0]
+                    keyword_reason_resolved = True
+            if llm_reason in {"opt_out_keywords", "typo_opt_out_keyword"} and not keyword_reason_resolved:
+                # Prevent long free-text phrases from being presented as "The word ... is a keyword".
+                llm_reason = "phrases"
+
+            has_offensive_signal = False
+            if customer_norm:
+                has_offensive_signal = bool(find_full_phrase_hits(customer_norm, opt_out_offensive_phrases))
+                if not has_offensive_signal:
+                    for pattern in offensive_pattern_rules:
+                        if pattern.search(customer_norm):
+                            has_offensive_signal = True
+                            break
+            if not has_offensive_signal:
+                for symbol in offensive_symbols:
+                    if symbol and symbol in raw_customer:
+                        has_offensive_signal = True
+                        break
+            if llm_reason in {"frustration", "offensive_symbols"} and not has_offensive_signal:
+                llm_reason = "no_reason"
+
+            if llm_reason != "no_reason":
+                llm_reason_label = f"{LLM_REASON_PREFIX}_{llm_reason}"
+                if not llm_trigger:
+                    llm_trigger = fallback_trigger_from_customer_message(raw_customer)
+                llm_triggers = {llm_reason: [llm_trigger] if llm_trigger else []}
+                template_text = build_template_text([llm_reason], llm_triggers)
+                output = {
+                    "OPT_OUT": 1,
+                    "REASON": llm_reason_label,
+                    "Template": template_text,
+                }
+                output.update(build_output_flags([llm_reason], llm_triggers))
+                return output
+
+    if OLLAMA_NO_REASON_CATEGORIZATION:
+        category, trigger = categorize_no_reason_with_ollama(
+            customer_message=raw_customer,
+            brand_message=str(brand_message) if brand_message is not None else "",
+        )
+        llm_reason_label = f"{LLM_REASON_PREFIX}_{category}"
+        if not trigger:
+            trigger = fallback_trigger_from_customer_message(raw_customer)
+        final_template = llm_template_style_fallback(trigger or raw_customer, category)
+        output = {
+            "OPT_OUT": 0,
+            "REASON": llm_reason_label,
+            "Template": final_template,
+        }
+        output.update(build_output_flags([], {}))
+        return output
+
     return build_no_match_output()
 
 
@@ -1835,6 +2173,10 @@ def main():
         under_13_config.get("age_limit_phrases", []),
     )
     direct_opt_out_rules = compile_direct_opt_out_rules(effective_direct_opt_out_config)
+    llm_reason_options = tuple(
+        (item["reason"], item["description"])
+        for item in build_llm_reason_options(config)
+    )
 
     df = pd.read_csv(INPUT_CSV)
 
@@ -1868,6 +2210,7 @@ def main():
                 direct_opt_out_rules=direct_opt_out_rules,
                 offensive_symbols=offensive_symbols,
                 offensive_pattern_rules=offensive_pattern_rules,
+                llm_reason_options=llm_reason_options,
             )
         )
 
