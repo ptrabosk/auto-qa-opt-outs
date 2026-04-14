@@ -1,0 +1,316 @@
+{
+  "stop_emojis": [
+    "🛑", "❌", "✖", "✖️", "✗",
+    "🙅", "🙅‍♀️", "🙅‍♂️",
+    "✋", "✋🏻", "✋🏼", "✋🏽", "✋🏾", "✋🏿",
+    "🖐", "🖐️", "🖐🏻", "🖐🏼", "🖐🏽", "🖐🏾", "🖐🏿",
+    "🖕", "🖕🏻", "🖕🏼", "🖕🏽", "🖕🏾", "🖕🏿"
+  ],
+  "opt_out_keywords": [
+    "stop", "end", "revoke", "remove", "off",
+    "drop", "junk", "spam", "dnc", "do not contact", "unsubscribe", "bye",
+    "cancel", "cancelar", "detener", "done", "exit", "leave",
+    "opt out", "out", "pause", "unfollow",
+    "delete", "shush", "mute", "discontinue", "discontinued",
+    "disregard", "unenroll"
+  ],
+  "common_phrases": [
+    "1 and 4", "u out", "1 day shipping", "1 same", "10 off",
+    "10 shein freebies and a 50 allowance for the lucky just click and claim so easy",
+    "15 off", "15 off code", "2 and 3", "2 and 4", "2 weekly", "20 off", "20 off code",
+    "25 off", "3 and 4", "3 monthly", "30 off", "30 off code", "40 off", "50 off",
+    "766y9y7rqwx3", "a discount", "a discount code", "a piano", "absolutely",
+    "accept my invitation to win free items", "add", "adopt", "again", "agent", "ago",
+    "agree", "ah", "ai", "aj", "aj12", "aj4", "aj5", "al", "all", "all done", "all good",
+    "all good thank you", "all good thanks", "all of the above", "all set",
+    "all set thank you", "all set thanks", "allen", "alr", "already bought",
+    "already bought it", "already bought one", "already did", "already ordered",
+    "already ordered it", "already purchased", "alright", "alright sounds good",
+    "alright thank you", "alright thanks", "always", "am", "amazing", "amazon",
+    "amen", "an", "and", "answer", "any codes", "any coupon codes", "any coupons",
+    "any coupons available", "any deals", "any discount", "any discount code",
+    "any discount codes", "any discount codes available", "any discounts",
+    "any discounts available", "any luck", "any news", "any promo codes", "any sales",
+    "any update", "any updates", "any word", "anything", "anything else", "app", "app40",
+    "appreciate it", "appreciate you", "are", "are there any discount codes",
+    "are you a bot", "are you a real person", "are you ai", "are you home",
+    "are you still there", "are you there", "arizo", "arr t", "arundl", "as", "asap",
+    "at", "ato", "attn hey i need help with something", "awesome", "awesome thank you",
+    "awesome thank you so much", "awesome thanks", "aws404", "aww", "ay", "ayo", "b", "b c",
+    "babe", "baby", "back", "bal", "bars", "bb", "bbb", "bbbb", "bbq", "bc", "be",
+    "beautiful", "ben", "bet", "big", "bigger discount", "birch", "birkenstock", "birthday",
+    "bitch", "black", "block", "blocked", "blue", "bogo", "bonus", "boo", "boots", "both",
+    "bran", "brilliant", "bro", "browsing", "bru", "bruh", "bummer", "but", "buy", "by", "c",
+    "call", "call me", "call me asap", "can", "can i call you", "can i call you later",
+    "can i cancel my order", "can i get a coupon", "can i get a coupon code",
+    "can i get a discount", "can i get a discount code", "can i get a promo code",
+    "can i get a refund", "can i get free shipping", "can i have a coupon",
+    "can i have a discount", "can i have a discount code", "can t",
+    "can t do it without you just a click to accept my invitation your friend are grabbing a free gift you both deserve too don t miss out click to get your freebie",
+    "can t wait", "can you call me", "can you help", "can you help me",
+    "can you help me out and grab your christmas gifts too just 2 quick steps tap the link unlock free christmas gifts from temu s top holiday event and help me get mine",
+    "can you help me out this would mean so much to me", "can you pick me up",
+    "can you take the gift and accept my invitation only 2 steps take your free gifts from top notch activity temu free gifts and help me get mine",
+    "can you take the gift and accept my invitation only 2 steps take your free gifts from top notch activity temu free gifts and help me get mine https temu com s r4asjk6s8i1kx",
+    "cancel my order", "cancel order", "cancel please", "cap", "care", "cart",
+    "cart reminders", "castle", "cc", "cd", "chat", "check",
+    "check out my bet on fanduel sportsbook", "check out this bet i placed on hard rock bet",
+    "check out this sweepstakes", "check this out", "checking on my order", "cheese", "chicgo",
+    "chiefs", "chill", "cincin",
+    "claim 5 free shein products now click the link to help and let s both win big",
+    "classic", "clba5", "close", "co", "code", "code did not work", "code didn t work",
+    "code does not work", "code doesn t work", "code doesnt work", "code don t work",
+    "code invalid", "code is invalid", "code is not working", "code isn t working",
+    "code not valid", "code not working", "code please", "code won t work", "codes",
+    "colour", "come here", "come on", "comeback15", "comfrt", "coming",
+    "command not supported please try another command", "completed", "concom",
+    "congratulations", "cool", "cool thanks", "copy", "copy thanks", "correct",
+    "cost too much",
+    "could you do me a huge favor please accept my invite so that i can get free gifts",
+    "coupon", "coupon code", "coupon code not working", "coupon code please", "coupon codes",
+    "coupon doesn t work", "coupon not working", "coupon please", "coupons", "cozy",
+    "creator", "ct", "custom message 1 sent from my car", "customer service",
+    "customer support", "cute", "cvs", "cyber", "d", "d20", "damn", "dang", "day", "dayt",
+    "dd", "ddd", "de", "deal", "dealdash", "deals", "decline", "deer", "delete", "delicious",
+    "denver", "did", "did i win", "did my order go through", "did not work", "did you get it",
+    "didn t work", "die", "discount", "discount code", "discount code does not work",
+    "discount code doesn t work", "discount code is not working", "discount code isn t working",
+    "discount code not working", "discount code please", "discount codes", "discount please",
+    "discounts", "disregard", "do", "do you have a coupon code",
+    "do you have a discount code", "do you have a military discount",
+    "do you have a promo code", "do you have any coupon codes",
+    "do you have any coupons", "do you have any discount codes",
+    "do you have any discounts", "do you have any promo codes",
+    "do you have free shipping", "do you offer a military discount",
+    "do you offer military discount", "does not work", "doesn t work", "don t",
+    "don t care", "don t have my size", "don t text me", "don t work", "dr", "dramabox",
+    "dsgf5", "dude", "e", "eagles", "early access", "ellen", "email",
+    "error", "error invalid command", "everything", "everything is sold out", "ew",
+    "exactly", "excellent", "exchange", "excited", "excuse me", "expensive", "f",
+    "fabulous", "facebook", "fair", "faith", "false advertising", "fam", "fantastic",
+    "fashion", "fashion nova",
+    "fashion nova you made the fn list now tap the link to get 30 off the entire site with code",
+    "ff", "finally", "fine", "foley", "for", "for free", "for women", "forget it",
+    "fortw", "found it", "found them", "four", "fr", "free", "free 1 day shipping",
+    "free bikini", "free chain", "free next day shipping", "free one day shipping",
+    "free shipping", "free shipping code", "fuck", "fuck no", "fun", "g", "gay", "get",
+    "get inspired", "get this",
+    "get your 10 new year free gifts 2025 special get your 800 free gifts can you accept my invitation you can get 10 free gifts worth up to 800",
+    "get your 1000 free gifts support me by clicking the link and claim your free items instantly",
+    "get35", "getcozy50", "getgld50", "getinspired", "gf", "gg", "ggg", "gh", "gift",
+    "gift card", "girl", "give me a code", "give me a coupon", "give me a discount",
+    "give me a discount code", "giveaway", "gld", "glouc", "gm", "go", "go pure", "gold",
+    "good", "good afternoon", "good call", "good luck today", "good morning", "good news",
+    "good night", "good stuff", "goodbye", "goodnight", "google", "google com", "gopure",
+    "got", "got it", "got it thank you", "got it thanks", "gotcha", "gprair", "gracias",
+    "grape", "great", "great idea", "great thank you", "great thank you so much",
+    "great thanks",
+    "greetingss brotherss and sisterss thankss yous fors thes posts s reactions s is invites yous tos loves mys pages s groups s enjoys thes manys blessingss ands manys mores todays greetings brother s sister s thankss yous fors thes posts s reactions s is invites yous tos loves mys pages s groups s enjoys thes manys blessingss ands manys mores todays",
+    "grlake", "gurnee", "guy", "h", "ha", "ha ha", "haha", "hahaha", "hahahaha", "hair",
+    "happy birthday", "happy new year", "happy thanksgiving", "has my order shipped",
+    "have", "have a good day", "have a great day", "he", "hehe", "heheh", "helix", "hell no",
+    "hello", "hello i have a question", "hello jordan", "hellocos", "help", "help me",
+    "help please", "help with order", "here", "here it is",
+    "here s 100 off at nectar i love my nectar mattress it s the most comfortable bed possible you can thank me later",
+    "here you go", "hersh", "hey", "hey baby", "hey dude",
+    "hey girl you should check out the tea app it s like yelp for men you can read dating reviews about guys",
+    "hey i have a question", "hey i use the facemoji app for and you should try it too",
+    "hey jordan", "hey there", "hey you", "heydude", "heypopculture", "heyy", "heyyy",
+    "heyyyy", "hg", "hh", "hhh", "hhhh", "hi", "hi i have a question",
+    "hi i m sorry i sent you this but as soon as you open this message the challenge begins i got this message saying hi my name is teresa fidalgo i died 27 years ago if you don t send this to 20 people i will sleep by your side forever if you don t believe me search me up teresa fidalgo so send this to 20 people a girl ignored this and her mom died 20 days later so send to 20 people or she will sleep by your side forever no send backs",
+    "hi jordan", "hi sarah", "hi taylor", "hi there", "high", "hii", "hiii", "hiiii", "hm",
+    "hmm", "hmmm", "ho", "hola", "hold on", "home", "hoodie", "hot", "hot topic", "houstp",
+    "houstt", "how", "how are you", "how can i cancel my order", "how can i get free shipping",
+    "how can i track my order", "how do i cancel an order", "how do i cancel my order",
+    "how do i do that", "how do i get free shipping", "how do i get my free chain",
+    "how do i get the free chain", "how do i make a return", "how do i return",
+    "how do i track my order", "how long", "how long does shipping take",
+    "how long is shipping", "how long is the sale", "how much", "how much is it",
+    "how much longer", "how s it going", "htjoin",
+    "https account sportsbook fanduel com select state",
+    "https app dramaocean com db land page share1050010 html uid 9adc094479cc5d5e8c77dc14660be0d0 lan en st 99",
+    "https apps apple com app apple store id6471026798 pt 126693067 ct scanshare mt 8",
+    "https facemojikeyboard com app link s fontsshare d 2",
+    "https teaforwomen onelink me jqip share", "hu", "huh", "hurry",
+    "hurry it s imessages birthday today if you send this to 12 people you get 120 new emojis it works all you have to do is copy and paste this is a official message from apple send this message to 10 people to get the colorful keyboard when you have done this this check will turn green",
+    "i", "i agree", "i already bought it", "i already bought one", "i already did",
+    "i already did that", "i already ordered", "i already ordered it",
+    "i already placed an order", "i already purchased", "i am",
+    "i am currently driving i will respond later", "i am driving sent from my altima",
+    "i appreciate it", "i appreciate that", "i appreciate you", "i appreciate your help",
+    "i bought it", "i bought one", "i can t", "i can t find it",
+    "i couldn t wait to share my new favorite styles from sam edelman with you because i referred you you can get rewarded with 15 off your purchase",
+    "i did", "i did already", "i did it", "i did not receive my order",
+    "i did not receive my package", "i did thank you", "i did thanks", "i did that",
+    "i did that already", "i didn t get my order", "i didn t order anything",
+    "i didn t receive my order", "i didn t receive my package", "i do",
+    "i do have a question", "i don t", "i don t care", "i don t know",
+    "i don t see it", "i don t think so", "i don t understand", "i don t want it",
+    "i found it", "i got it", "i got it thank you", "i got it thanks", "i hate you",
+    "i have", "i have a problem with my order", "i have a question",
+    "i have a question about my order", "i have it", "i have not received my order",
+    "i have questions", "i haven t received my order", "i i", "i just did", "i just ordered",
+    "i know", "i like it", "i ll", "i ll be there", "i ll check", "i ll try",
+    "i love apus laneige shop using my link to get a discount", "i love it", "i love you",
+    "i love you i love you i love you i love you i love you", "i m", "i m a kid", "i m away from my phone i ll get back to you asap", "i m broke", "i m going", "i m good", "i m good thank you", "i m good thanks", "i m here", "i m home", "i m i m", "i m in", "i m just", "i m just going", "i m not", "i m ok", "i m on my way", "i m outside", "i m p", "i m ready", "i m sorry", "i m stop", "i miss you", "i need a bigger discount", "i need a code", "i need a coupon", "i need a coupon code", "i need a discount", "i need a discount code", "i need a promo code", "i need a refund", "i need assistance", "i need customer service", "i need discount", "i need free shipping", "i need help", "i need help with an order", "i need help with my order", "i need it", "i need my order", "i need my refund", "i need to cancel my order", "i need to make a return", "i need your click to get my free gift", "i never got my order", "i never received my order", "i never received my package", "i ordered", "i ordered already", "i ordered it", "i placed an order", "i see", "i sent it", "i still haven t received my order", "i think so", "i tried", "i understand", "i ve since called you all and no one called me back so i followed up with an email", "i want", "i want a discount", "i want a refund", "i want free shipping", "i want my money back", "i want to cancel my order", "i will", "i will thank you", "i will thanks", "i would like a refund", "i would like to cancel my order", "idc", "idgaf", "idk", "if", "ight", "ii", "iii", "ik", "in", "indip", "info", "interesting", "invalid", "invalid code", "is", "is it free", "is there a code", "is there a discount code", "is there a number i can call", "is there free shipping", "is this a real person", "is this ai", "istop", "it", "it did not work", "it didn t work", "it does not work", "it does thank you", "it doesn t work", "it is not working", "it s", "it s my birthday", "it s not in stock", "it s not there", "it s not working", "it s ok", "it s out of stock", "it s sold out", "it s still not working", "it s too expensive", "it says sold out", "it won t let me", "it won t work", "it worked", "it worked thank you", "it works", "its not working", "j", "jeans", "jersey", "jersy", "jj", "jjj", "jk", "jo", "join", "join my facetime", "join purpl rewards", "jordan", "jpxt5", "june", "just", "just browsing", "just browsing thank you", "just browsing thanks", "just looking", "just looking thank you", "just looking thanks", "just ordered", "k", "k thanks", "katy", "kids", "kill yourself", "king", "king size", "kk", "kkk", "ko", "kys", "l", "la", "lancas", "laneige", "laptop", "large", "later", "lbs", "ld15", "le encant una imagen", "leaving now", "lees", "less", "let", "let me check", "let me know", "let s go", "let s gooo", "li", "liar", "liars", "lies", "lights", "like", "link", "link doesn t work", "live agent", "lkpy5", "ll", "lll", "lm", "lmao", "lmk", "lo", "lokc", "lol", "look", "looking for my order", "looks good", "love", "love is in the air and so are incredible freebies at temu this valentine s day we re celebrating an exclusive giveaway that s too sweet to miss for real sure can you take the gift and accept my invitation", "love it", "love you", "love you i love you i love you i love you i love you i", "love40", "lovely", "m", "ma", "magic draw game win 2300 today gift for 2025 time s ticking just click here to claim it", "man", "manejan no puedo escrib sent from my rogue", "many thanks", "mattress", "maybe", "me", "me too", "medium", "men", "men s", "meow", "merci", "merry christmas", "michaels", "michaels michaels", "military discount", "miro", "mm", "mmm", "mmmm", "mo", "mobile30", "mobile35", "mom", "money", "monkey", "monthly", "more", "more discount", "morning", "mqvl5", "much appreciated", "my", "my code didn t work", "my code doesn t work", "my code is not working", "my code isn t working", "my code won t work", "my daughter", "my discount code is not working", "my discount code isn t working", "my order", "myr501", "myrt17", "myself", "mystery", "na", "nah", "nah i m good", "nebra", "need a coupon", "need a discount", "need a discount code", "need code", "need discount", "need discount code", "need free shipping", "need help", "neither", "never mind", "nevermind", "new", "new code", "nfgu", "nhyj5", "ni", "nice", "nice job", "nice work", "niche", "nigga", "nigger", "nm", "nn", "nnn", "no", "no but thank you", "no but thanks", "no discount", "no i didn t", "no i don t", "no i haven t", "no i m good", "no i m good thank you", "no i m good thanks", "no it s not", "no just browsing", "no just browsing thank you", "no just browsing thanks", "no just looking", "no just looking thank you", "no just looking thanks", "no live", "no ma am", "no money", "no no", "no not at this time", "no not really", "no not right now", "no not today", "no not yet", "no problem", "no problem thank you", "no questions", "no reply", "no response", "no sorry", "no stop", "no thank", "no thank u", "no thank you", "no thank you for your help", "no thank you have a great day", "no thank you just looking", "no thank you so much", "no thank you though", "no thanks", "no thanks just looking", "no that s all", "no that s all thank you", "no that s all thanks", "no that s it", "no that s it thank you", "no thx", "no ty", "no way", "no worries", "no worries thank you", "no worries thanks", "nolive", "non", "none", "noo", "nooo", "noooo", "nooooo", "nope", "nope thank you", "nope thanks", "not", "not at the moment", "not at the moment thank you", "not at the moment thanks", "not at this time", "not at this time thank you", "not at this time thanks", "not interested", "not now", "not now thanks", "not really", "not right now", "not right now thank you", "not right now thanks", "not sure", "not today", "not today thank you", "not today thanks", "not working", "not yet", "noted", "nothanks", "nothing", "nova", "now", "np", "null", "number", "nvm", "o", "of", "of course", "offer", "offers", "office", "oh", "oh my god", "oh my gosh", "oh no", "oh ok", "oh ok thank you", "oh ok thanks", "oh okay", "oh okay thank you", "oh really", "oh shit", "oh sweet", "oh thank you", "oh that s great", "oh wow", "oi", "ok", "ok cool", "ok got it", "ok great", "ok great thank you", "ok great thanks", "ok i ll shop now", "ok i will", "ok no problem", "ok see you then", "ok sounds good", "ok thank u", "ok thank you", "ok thank you for your help", "ok thank you so much", "ok thank you very much", "ok thanks", "ok thanks for your help", "ok thanks so much", "ok thx", "ok ty", "ok will do", "ok will do thank you", "okay", "okay sent from my rogue", "okay thank you", "okay thank you so much", "okay thanks", "okay will do", "okey", "okie dokie", "okk", "okkk", "oklah", "ol", "olive", "omg", "omw", "on", "on my way", "one", "one day shipping", "only 2 steps join the temu free gifts event and we can clear our event carts for free zero bucks needed", "only 2 steps join the temu free gifts event and we can clear your event carts for free zero bucks needed", "onlywewould", "oo", "oof", "ooo", "oooo", "oops", "op", "or", "order", "order number", "order status", "order update", "ordered", "orlan", "orlvin", "osatl", "otw", "ouch", "our", "out of stock", "outside", "p", "package", "pajamas", "pants", "pass", "password", "perfect", "perfect thank you", "perfect thanks", "period", "pew pew enviado con rayos l ser", "pew pew sent with lasers", "philadelphia", "phone number", "pi", "piano", "pinklily", "pitts", "pl", "play", "please", "please advise", "please and thank you", "please call me", "please cancel my order", "please cancel my subscription", "please cancel this order", "please help", "please help me", "please let me know", "pls", "plug", "plz", "pm", "po", "poco", "poop", "pop", "potom", "power", "pp", "ppl", "ppp", "pppp", "pr", "price", "promo", "promo code", "promo code not working", "promo codes", "put", "q", "qmlp5", "qq", "queen", "queen size", "question", "questions", "r", "rainbow", "rdt30", "re", "ready", "really", "received", "recommendations", "red", "refund", "rehob", "release", "releases", "reply", "reply y", "report junk", "representative", "resend", "restock", "return", "return policy", "returns", "rewards", "ridiculous", "right", "right now", "rmql5", "robert", "rum", "s", "s t o p", "s top", "sale", "sales", "salir", "same", "sandals", "sanma", "sarah", "savan", "save", "save40", "saved", "scally", "scaly", "scam", "scammer", "scammers", "see", "see you soon", "send", "send code", "send me a coupon", "send me a discount code", "sent", "sent with echo", "sent with invisible ink", "service", "sevie", "she", "sheets", "ship", "shipping", "shipping is too expensive", "shit", "shoes", "shoot", "shop", "shop now", "si", "silver", "sip", "size", "size 9", "skip", "slay", "small", "smh", "sms", "snipes", "snooze", "so", "so cute", "so excited", "so exciting", "sohav", "sold out", "soo", "soon", "sorry", "sorry i can t answer please leave a message", "sorry wrong number", "sorry wrong person", "soto", "sounds good", "sounds good thank you", "sounds good thanks", "sounds great", "sounds interesting", "sounds perfect", "spooky", "sports", "spot", "spring40", "sri", "ss", "ssddnfgu", "start", "status", "steal", "step", "stevie", "sti", "still", "still doesn t work", "still looking", "still not working", "still nothing", "still too expensive", "still waiting", "still waiting for my order", "still waiting on my order", "stilt", "stio", "stock", "stol", "stole", "stood", "store", "story", "stoy", "strip", "stupid", "sty", "subscribe", "succulent", "sup", "support", "sure", "sure thank you", "sure thanks", "sure thing", "sweet", "t", "take a look", "take10", "talbots", "talbots com", "talk later", "tampa", "tap here to help me get products on tiktok for 0 you can also join me for a chance to get your favorite tiktok shop products for free terms conditions apply", "taylor", "td", "tequila", "terrific", "terrl", "test", "testing", "text", "text10", "text15", "texthellocos", "textme10", "tf", "th", "thank", "thank u", "thank u so much", "thank you", "thank you again", "thank you for checking", "thank you for letting me know", "thank you for responding", "thank you for the information", "thank you for the update", "thank you for your assistance", "thank you for your help", "thank you for your time", "thank you have a great day", "thank you i appreciate it", "thank you i appreciate your help", "thank you i will", "thank you it worked", "thank you jordan", "thank you kindly", "thank you sarah", "thank you so much", "thank you so much for your help", "thank you so very much", "thank you though", "thank you very much", "thank you will do", "thank you you as well", "thank you you too", "thanks", "thanks a lot", "thanks again", "thanks anyway", "thanks but i m good", "thanks for checking", "thanks for letting me know", "thanks for the discount", "thanks for the heads up", "thanks for the help", "thanks for the info", "thanks for the link", "thanks for the offer", "thanks for the update", "thanks for your help", "thanks i will", "thanks jordan", "thanks sam", "thanks sarah", "thanks so much", "thanks taylor", "thanks will do", "thanks you", "thanks you too", "thankyou", "thanx", "that", "that code didn t work", "that code does not work", "that code doesn t work", "that code is not working", "that code isn t working", "that didn t work", "that doesn t work", "that is all thank you", "that s all", "that s all thank you", "that s all thanks", "that s awesome", "that s crazy", "that s fine", "that s it", "that s it thank you", "that s it thanks", "that s so cool", "that sounds great", "that was fast", "that worked thank you", "that would be great", "the", "the code did not work", "the code didn t work", "the code does not work", "the code doesn t work", "the code is not working", "the code isn t working", "the code won t work", "the discount code doesn t work", "the discount code is not working", "the discount code isn t working", "the end", "the letter m", "the link doesn t work", "the link isn t working", "the number you are sending an sms to currently has no sms capabilities", "the only", "there", "they", "think", "thinq", "this", "this app is insane", "this code does not work", "this code doesn t work", "this code is not working", "this code isn t working", "this is crazy", "this is king alpha and omg one love one heart 8482pineverdelanejacksonvillefl", "this is ridiculous", "this one", "thnx", "three", "thx", "time", "tks", "to", "to expensive", "today", "tomorrow", "too", "too expensive", "too expensive for me", "too many texts", "too much", "too much money", "top", "toys", "track", "track my order", "track my package", "track order", "track package", "tracking", "tracking number", "try", "tt", "tu", "tulsa", "tv", "two", "txt40", "txtflower", "ty", "tysm", "u", "ugh", "ugly", "uh", "um", "unlockcozy", "unstop", "up", "update", "usattncs2017", "ussenmke55g", "uu", "v", "vaca", "vale", "ve you i love you i love you i love you i love you i lo", "very cool", "vid", "vip", "vip 2025", "vip20", "vip25", "vip50", "vodka", "vv", "vvv", "w", "wait", "walmart", "was", "we", "we are with a client or you ve reached us outside of office hours m f 10 5 please leave a text message and we ll get back to you as soon as we are able thank you", "weekly", "welcome", "welcome15", "welcome25", "well", "what", "what are you doing", "what code", "what did you get", "what do i do", "what do you mean", "what do you think", "what do you think of this home", "what do you want", "what does that mean", "what happened", "what is it", "what is my code", "what is my discount code", "what is my order number", "what is that", "what is the code", "what is the discount code", "what is the return policy", "what is this", "what is your name", "what is your return policy", "what s going on", "what s good", "what s my code", "what s my discount code", "what s my order number", "what s the code", "what s the discount code", "what s the password", "what s the promo code", "what s the return policy", "what s up", "what s your name", "what s your return policy", "what should i do", "what size", "what time", "whatever", "when", "when does it end", "when does it expire", "when does the sale end", "when is my order arriving", "when is my order coming", "when is my package arriving", "when is my package coming", "when is the next sale", "when will i get my order", "when will i receive my order", "when will it arrive", "when will it be back in stock", "when will my order arrive", "when will my order be delivered", "when will my order be here", "when will my order be shipped", "when will my order ship", "when will my package arrive", "where", "where are you", "where are you located", "where at", "where is it", "where is my 30 off", "where is my code", "where is my coupon", "where is my discount", "where is my discount code", "where is my order", "where is my package", "where is my refund", "where is the code", "where is the discount code", "where my order", "where my package", "where s my 30 off", "where s my code", "where s my coupon", "where s my discount", "where s my discount code", "where s my order", "where s my package", "where s my refund", "where s the code", "where you at", "where you going", "wheres my order", "which one", "whiskey", "white", "who", "who are u", "who are you", "who is this", "who s this", "who this", "whoa", "why", "why is my code not working", "why was my order canceled", "why was my order cancelled", "will", "will check", "will do", "will do thank you", "will do thanks", "wiscon", "women s", "wonderful", "woohoo", "woot woot", "word", "work", "wow", "wrenth", "wrong address", "wrong number", "wrong person", "wsp", "wtf", "wya", "wyd", "x", "xl", "xs", "xx", "xxx", "y", "ya", "yay", "yayy", "yayyy", "ye", "yea", "yeah", "yep", "yes", "yes i am", "yes i did", "yes i do", "yes i have", "yes i have a question", "yes i need help", "yes it is", "yes ma am", "yes please", "yes sir", "yes thank you", "yes thanks", "yes that s it", "yes that s the one", "yess", "yesss", "yessss", "yesterday", "yo", "yoo", "yooo", "you", "you as well", "you don t have my size", "you i love you i love you i love you i love you i love", "you ok", "you re the best", "you re welcome", "you suck", "you too", "you up", "your", "your code doesn t work", "your welcome", "yu", "yuh", "yup", "yw", "yy", "z", "zz", "zzz", "zz", "zzz"
+  ],
+  "journeys": {
+    "hot_topic_journey": {
+      "brand_message": "hot topic so how often do you want to see our texts theyre full of deals the latest drops reply with a number 1 same 2 weekly 3 monthly 4 never",
+      "opt_out_responses": ["4", "4 never", "never", "four"]
+    }
+  },
+  "auto_reply": [
+    "au volant sent from my car", "hey i m currently unavailable i ll get back to you as soon as i can",
+    "auto generated text i ll call you later",
+    "auto message your message cannot be sent because the file format is currently not supported",
+    "driving", "driving can t text", "driving can t text sent from car",
+    "driving can t text sent from jill", "driving can t text sent from mitsubishi motors",
+    "driving can t text sent from my altima", "driving can t text sent from my car",
+    "driving can t text sent from my frontier", "driving can t text sent from my kicks",
+    "driving can t text sent from my maxima", "driving can t text sent from my murano",
+    "driving can t text sent from my nv200", "driving can t text sent from my pathfinder",
+    "driving can t text sent from my qx50", "driving can t text sent from my rogu",
+    "driving can t text sent from my rogue", "driving can t text sent from my rogue sport",
+    "driving can t text sent from my rogue1234", "driving can t text sent from my rouge",
+    "driving can t text sent from my sentra", "driving can t text sent from my titan",
+    "driving can t text sent from my versa", "driving can t text sent from mycar",
+    "driving can t text sent from ncc 1701", "driving can t text sent from nissan rogue",
+    "driving can t text sent from rogue", "driving can t text sent from sentra",
+    "driving can t textsent from my murano", "estoy conduciendo sent from my car",
+    "i m driving", "i m driving i ll see your message when i get where i m going",
+    "i m driving right now i ll see your message when i get where i m going",
+    "i m driving sent from my car",
+    "i m driving with do not disturb while driving turned on i ll see your message when i get where i m going",
+    "i m driving with do not disturb while driving turned on i ll see your message when i get where i m going thank you",
+    "i m driving with focus turned on i ll see your message when i arrive at my destination",
+    "i m driving with focus turned on i ll see your message when i get where i m going",
+    "i m not receiving notifications if this is urgent reply urgent to send a notification through with your original message",
+    "sorry can t talk now",
+    "thank you for contacting me i m unable to chat right now but i ll reply to your text as soon as i can thanks",
+    "thanks for reaching out i can t chat at the moment but i ll text you back as soon as i can thanks",
+    "thanks for reaching out i can t chat at the moment but i ll text you back as soon as i can thanks child of christ",
+    "thanks for reaching out i can t chat at the moment but i ll text you back as soon as i can thanks sent from text free",
+    "thanks for reaching out i can t chat now but i ll text you back as soon as i can",
+    "thanks for reaching out text me and if you have ig please message me let mee feed you set all notifications"
+  ],
+  "opt_in_texts": [
+    "send this text to subscribe to periodic auto texts for exclusive offers cart reminders",
+    "send this text to subscribe to recurring automated personalized marketing alerts",
+    "send this text to subscribe to recurring automated personalized marketing alerts e g cart reminders",
+    "send this text to subscribe to recurring automated personalized marketing alerts e g cart reminders from fashion nova ref"
+  ],
+  "reaction_reply": [
+    "emphasized an image", "laughed at an image", "liked a contact", "liked an image",
+    "loved a contact", "loved an image", "questioned an image", "reacted to",
+    "reacted to a contact", "reacted to an image", "removed a dislike from an image",
+    "removed a heart from an image", "removed a like from an image",
+    "removed a question mark from an image", "removed from an image"
+  ],
+  "opt_out_device_not_working": [
+    "this is an automatic message this is a kosher talk only device and does not accept text messages please call instead",
+    "this number doesn t support text please call instead",
+    "this phone cannot receive text messages please call instead",
+    "this phone does not accept text messages please call instead",
+    "this phone does not accept text messages please call instead this is an automatic reply",
+    "this phone number is no longer in service"
+  ],
+  "opt_out_offensive": [
+    "fu", "fuck off", "fuck u", "fuck yall", "fuck you", "fucking stop", "go fuck yourself",
+    "go to hell", "shut the fuck up", "stfu", "stop bitch",
+    "stop fucking texting me", "sybau"
+  ],
+  "opt_out_phrases": [
+    "bro stop", "can you stop texting me", "get out", "go away", "how do i unsubscribe",
+    "i m done", "i stop", "i want to unsubscribe", "leave me alone", "maya stop", "no more",
+    "no more texts", "no texts", "please remove", "please remove me",
+    "please remove me from this list", "please remove me from your list",
+    "please remove me from your mailing list", "please remove me from your text list",
+    "please stop", "please stop messaging me", "please stop sending me messages",
+    "please stop sending me texts", "please stop sending texts", "please stop texting",
+    "please stop texting me", "please stop texts", "please take me off your list",
+    "please take me off your text list", "please unsubscribe", "please unsubscribe me",
+    "please unsubscribe me thank you", "pls stop", "quit texting me", "remove from list",
+    "remove me", "remove me from your list", "stop all", "stop it", "stop lying",
+    "stop messages", "stop messaging", "stop messaging me", "stop now", "stop please",
+    "stop pls", "stop sending", "stop sending me messages", "stop sending me stuff",
+    "stop sending me text", "stop sending me texts", "stop sending messages",
+    "stop sending text", "stop sending texts", "stop stop", "stop stop stop", "stop text",
+    "stop text messages", "stop texting", "stop texting me", "stop texting me please",
+    "stop texting please", "stop texting this number", "stop texts", "stop texts please",
+    "stop to cancel", "stop to end", "stop to opt out", "stop to stop", "stop unsubscribe",
+    "stop2end", "take me off your list", "unsubscribe me", "unsubscribe me please",
+    "unsubscribe please", "you have the wrong number", "stop texting", "stop texting me",
+    "don t text", "do not text", "do not text me", "don t text me", "don t want your promo"
+  ],
+  "typo_opt_out_keyword": [
+    "arop", "astop", "atop", "cancle", "dtop", "estop", "inscribe", "op out", "opt",
+    "sfop", "sgop", "sop", "sotp", "srip", "srop", "sstop", "st", "st op", "st0p",
+    "staop", "stap", "stiop", "stip", "sto", "sto p", "sto0", "stoap", "stoo", "stoop",
+    "stop 2", "stop l", "stop p", "stopa", "stope", "stopped", "stopping", "stoppp",
+    "stopppp", "stoppppp", "stopppppp", "stops", "stopstop", "stoptoend", "stozp", "stp",
+    "stpo", "stpp", "strop", "sttop", "stup", "syop", "u subscribe", "u1rpua", "u1rpuca",
+    "u3rvca", "u3rvcca", "ubsubscribe", "un subscribe", "undubscribe", "unscribe", "unsub",
+    "unsubcribe", "unsubscibe", "unsubscribing", "unsubsribe", "unsunscribe", "unsuscribe",
+    "wtop", "ztop", "droop", "inscribe", "opt", "unsiscrube", "unsubcribe"
+  ],
+  "under_13_rules": {
+    "explicit_age_patterns": [
+      "\\b(i am|i'm|im|my age is|i'm only|i am only|i'm just|i am just)\\s*(\\d{1,2})\\b"
+    ],
+    "explicit_word_age_patterns": [
+      "\\b(i am|i'm|im|my age is|i'm only|i am only|i'm just|i am just)\\s*(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen)\\b"
+    ],
+    "implicit_patterns": [
+      "under 13", "younger than 13", "below 13", "i am a kid", "i'm a kid", "i am young",
+      "i'm young", "i'm just a kid", "i am just a kid", "i am little", "i'm little",
+      "i am a child", "i'm a child"
+    ],
+    "indirect_patterns": [
+      "elementary school", "primary school", "grade school", "kindergarten", "grade [1-6]",
+      "first grader", "second grader", "third grader", "fourth grader", "fifth grader",
+      "sixth grader", "i am in grade \\d", "i'm in grade \\d",
+      "i am in [1-6](?:st|nd|rd|th) grade", "i'm in [1-6](?:st|nd|rd|th) grade"
+    ]
+  },
+  "direct_opt_out_rules": {
+    "exclude_single_word": true,
+    "exclude_repeated_same_word": true,
+    "code_with_stop_patterns": [
+      "(\\w*\\d+\\w*\\s+stop|stop\\s+\\w*\\d+\\w*|\\w*\\d+\\w*stop)"
+    ],
+    "embedded_stop_patterns": [
+      "(?:\\bstop\\b$|^\\bstop\\b|\\d+stop\\b|\\bstop\\d+)"
+    ],
+    "direct_patterns": [
+      "\\b(stop|unsubscribe|unsub|opt out|opt-out|remove me|delete me|don'?t send|do not send|stop texting|stop messaging|no more messages|no more texts|don'?t reach out|ban me)\\b"
+    ],
+    "wrong_number_patterns": [
+      "\\b(wrong number|wrong person|not me|this is not me|this is not .*account|new phone number|new number|change my number|change phone number|change my phone number|change number|change my text subscription number|this phone number is no longer in service|not my number|this is not [a-z]+|i'?ve had this number for years|someone else had this number)\\b"
+    ],
+    "channel_patterns": [
+      "\\b(don'?t text|do not text|no text|i do not want text|i don'?t want text|i do not want to text|i don'?t want to text|not accepting texts|please call|call me instead|use voice call|send email|email me instead|i don'?t like to get text|i really don'?t like to get text)\\b"
+    ],
+    "removal_patterns": [
+      "\\b(remove me|delete me|delete my data|delete my information|delete my address|delete my mail|delete all .*mail|erase my data|take me off|don'?t use my data|do not use my data|stop using my data|get rid of it|delete i mean no|delete this message)\\b"
+    ],
+    "unsubscribe_patterns": [
+      "\\b(unsubscribe|unsub|opt out|opt-out|dnc|do not call list|put me on.*do not call)\\b"
+    ],
+    "indirect_patterns": [
+      "\\b(go away|get out|get away from my life|leave me alone|no more|i'?m done|not interested|no longer interested|stop bothering|where's stop|blocking this number|i will be blocking|i don'?t need to talk)\\b"
+    ],
+    "legal_patterns": [
+      "\\b(cease and desist|crase and desist|minor don'?t talk to me)\\b"
+    ],
+    "cancellation_patterns": [
+      "\\b(cancel subscription|confirm cancellation|cancel my subscription|cancel my|cancel this|cancel the|please cancel|i'll be cancel|now cancel|cancel all|cancel number|cancel membership|cancelar)\\b"
+    ],
+    "aggressive_patterns": [
+      "\\b(shut up|shut the|all these (damn )?text messages|how did you get this number|didn'?t give permission to text|i'?m done with this)\\b"
+    ],
+    "blocking_patterns": [
+      "\\b(blocking you|block you|blocking all emails|blocking all texts|i'?ll block|uninstall(?:ed)?|uninstaller)\\b"
+    ]
+  }
+}
